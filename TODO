@@ -1,0 +1,18 @@
+Automate service registration
+
+CodeOwners
+
+Purning and Autosyncing?
+
+Implemented external helm values
+    - https://softrams.com/insights/external-value-files-in-argo-cd-with-applicationsets/
+
+How do we toggle services on and off?
+ - should we do dark deploys (deployed by scalced down)
+Deal with different namespaces
+    - name of apps with a suffix of namespace?
+How do we set global defaults in the this repo or one above ( product registry)
+    - istio gateway
+    - ip whitelisting etc?
+Lets store service helm charts in oci?
+    - lock step images and helm artefacts

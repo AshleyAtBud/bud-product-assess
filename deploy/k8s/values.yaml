@@ -1,0 +1,19 @@
+---
+k8s_cluster_name: bud-k8s-cluster
+
+generators:
+  git:
+    repoURLBase: 'https://github.com/AshleyAtBud'
+    repoURL: 'bud-product-assess'
+    revision: 'main'
+    path: 'services/*'
+
+template:
+  spec:
+    project: 'bud'
+    source:
+      repoURLBase: 'https://github.com/AshleyAtBud'
+      targetRevision: 'main'
+      path: 'deploy/k8s'
+    destination:
+      server: 'https://kubernetes.default'

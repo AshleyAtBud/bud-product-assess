@@ -1,0 +1,8 @@
+---
+default_values: |
+
+  revision-tag: 'v1.0'
+
+  configmap:
+    env_var1: default
+    env_var2: values

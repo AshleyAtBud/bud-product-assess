@@ -1,0 +1,5 @@
+---
+service:
+  name: assess-users
+  owner: assess-check-pay
+  repoName: backend-assess-users

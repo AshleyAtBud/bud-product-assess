@@ -1,0 +1,5 @@
+---
+service:
+  name: example-service-name
+  owner: example-servce-owneer
+  repoName: example-repo-name

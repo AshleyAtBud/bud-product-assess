@@ -1,0 +1,35 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: authnz
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: {{ .Values.generators.git.repoURLBase }}/{{ .Values.generators.git.repoURL }}
+      revision: {{ .Values.generators.git.revision }}
+      files:
+      - path: {{ .Values.generators.git.path }}/definition/config.yaml
+      - path: {{ .Values.generators.git.path }}/default/config.yaml
+      - path: {{ .Values.generators.git.path }}/custom/{{ .Values.k8s_cluster_name }}-config.yaml
+  template:
+    labels:
+      owner: "{{ include "gotpl" "service.owner" }}"
+    metadata:
+      name: "{{ include "gotpl" "service.name" }}"
+    spec:
+      project: {{ .Values.template.spec.project }}
+      source:
+        helm:
+          valueFiles:
+          - values.yaml
+          values: |-
+            "{{ include "gotpl" "default_values" }}"
+            "{{ include "gotpl" "custom_values" }}"
+        repoURL: "{{ .Values.template.spec.source.repoURLBase }}/{{ include "gotpl" "service.repoName" }}"
+        targetRevision: {{ .Values.template.spec.source.targetRevision }}
+        path: {{ .Values.template.spec.source.path }}
+      destination:
+        server: {{ .Values.template.spec.destination.server }}
+        namespace: argocd

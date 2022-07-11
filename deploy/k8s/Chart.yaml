@@ -1,0 +1,8 @@
+---
+apiVersion: 'v2'
+name: 'authnz-products'
+version: '0.0.0'
+type: 'application'
+description: 'A declarative list of authnz products'
+maintainers:
+  - name: 'platform'

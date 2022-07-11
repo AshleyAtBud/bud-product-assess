@@ -1,0 +1,5 @@
+---
+service:
+  name: assess-oauth
+  owner: assess-check-pay
+  repoName: backend-assess-oauth

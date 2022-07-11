@@ -1,0 +1,5 @@
+---
+custom_values: |
+  configmap:
+    env_var1: default1
+    env_var3: test1
